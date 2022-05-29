@@ -1,0 +1,28 @@
+.row{
+    max-width: 114rem;
+    margin: 0 auto;
+
+    &:not(:last-child){
+        margin-bottom: 80px;
+    }
+
+@include clearfix;
+
+    .col-1-of-2{
+        width: calc((100% - 60px)/2);
+        float: left;
+
+        &:not(:last-child){
+            margin-right: 60px;
+        }
+    }
+
+    .col-1-of-3{
+        width: calc((100% - 120px)/3);
+        float: left;
+
+        &:not(:last-child){
+            margin-right: 60px;
+        }
+    }
+}

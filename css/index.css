@@ -1,0 +1,151 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  /* 使盒子的大小不受边框和填充的影响 */
+  box-sizing: border-box; }
+
+body {
+  font-family: "微软雅黑";
+  font-weight: 400;
+  font-size: 16px;
+  /* 比预计的行高大1.7倍 */
+  line-height: 1.7;
+  color: #777;
+  padding: 30px; }
+
+.header {
+  position: relative;
+  height: 95vh;
+  /* 颜色线性渐变 从左上角渐变到右下 */
+  background-image: linear-gradient(to right bottom, rgba(128, 214, 113, 0.8), rgba(39, 180, 133, 0.8)), url(../images/风景.jpg);
+  /* 适应窗口 */
+  background-size: cover;
+  background-position: top;
+  /* 定义多边形的四个角 左上，右上，右下，左下 */
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
+
+.logo-box {
+  position: absolute;
+  top: 40px;
+  left: 40px; }
+
+.logo {
+  height: 80px; }
+
+.text-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  position: relative; }
+
+.heading-peimary {
+  color: #fff;
+  text-transform: uppercase;
+  /* 这行代码是为了 解决动画结束后会稍微向上动 的bug */
+  backface-visibility: visible;
+  margin-bottom: 60px; }
+
+.heading-peimary-main {
+  display: block;
+  font-size: 60px;
+  font-weight: 400;
+  letter-spacing: 35px;
+  /* 动画属性 duration动画时间 delay延迟时间 */
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  /* delay延迟时间 */
+  /* animation-delay:3s; */
+  /* 动画发动次数 */
+  /* animation-iteration-count: 3; */
+  /* 动画效果 ease-out缓出 ease-in缓入 */
+  animation-timing-function: ease-out; }
+
+.heading-peimary-sub {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 17.5px;
+  animation-name: moveInRight;
+  animation-duration: 1s;
+  animation-timing-function: ease-out; }
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px); }
+  80% {
+    transform: translateX(10px); }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px); }
+  80% {
+    transform: translateX(-10px); }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); }
+
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); }
+
+/* 表示链接一直处于已经被访问的状态 */
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 12px 40px;
+  display: inline-block;
+  border-radius: 100px;
+  transition: all .2s;
+  position: relative;
+  animation-name: moveInButtom;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+  animation-delay: 0.5s;
+  /* 动画模式填充 动画开始前样式为0 */
+  animation-fill-mode: backwards; }
+
+.btn-white {
+  background-color: #fff;
+  color: #777; }
+
+.btn::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 100px;
+  transition: all .4s;
+  z-index: -1; }
+
+.btn-white::after {
+  background-color: #fff; }
+
+.btn:hover::after {
+  transform: scaleX(1.5) scaleY(1.6);
+  opacity: 0; }
+
+@keyframes moveInButtom {
+  0% {
+    opacity: 0;
+    transform: translateY(30px); }
+  80% {
+    transform: translateY(-10px); }
+  100% {
+    opacity: 1;
+    transform: translateY(0); } }
