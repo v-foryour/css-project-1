@@ -5,9 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="./css/index.css">
+
     <title>Document</title>
 </head>
 <body>
+    <div class="navigation">
+        <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
+
+        <label for="navi-toggle" class="navigation__button">
+            <span class="navigation__icon">&nbsp;</span>
+        </label>
+
+        <div class="navigation__background">&nbsp;</div>
+
+        <nav class="navigation__nav">
+            <ul class="navigation__list">
+                <li class="navigation__item"><a href="#" class="navigation__link"><span>01</span>旅途的开始</a></li>
+                <li class="navigation__item"><a href="#" class="navigation__link"><span>02</span>旅途的风景</a></li>
+                <li class="navigation__item"><a href="#" class="navigation__link"><span>03</span>旅途的结束</a></li>
+                
+                </ul>
+        </nav>
+    </div>
 
     <header class="header">
         <div class="logo-box">
@@ -21,5 +40,77 @@
             <a href="#" class="btn btn-white"><strong>发现我们的旅程</strong></a>
         </div>
     </header>
+
+    <main>
+        <section class="section-about">
+            <div class="u-center-text">
+                <h2 class="heading-secondary">
+                    Exciting tours for your
+                </h2>
+            </div>
+
+            <div class="row">
+                <div class="col-1-of-2">
+                    text left
+                </div>
+                <div class="col-1-of-2">
+                    <div class="composition">
+                        <img src="images/画社3.jpg" alt="Photo-1" class="composition__photo composition__photo--p1">
+                        <img src="images/画社1.jpg" alt="Photo-2" class="composition__photo composition__photo--p2">
+                        <img src="images/画社2.jpg" alt="Photo-3" class="composition__photo composition__photo--p3">
+                    </div>
+                </div>
+            </div>
+
+            <section class="section-tours">
+                <div class="u-center-text">
+                    <h2 class="heading-secondary">
+                        Most popular photo 
+                    </h2>
+                </div>
+                <div class="row">
+                    <div class="col-1-of-3">
+                        <div class="card">
+                            <div class="card__side card__side--front card__side--front-1">
+                                <div class="card__picture card__picture-1">
+                                    
+                                </div>
+                                <div class="card__heading">
+                                    高看低走
+                                </div>
+                                <div class="card__details">
+                                    <ul>
+                                        <li>1xx</li>
+                                        <li>2xx</li>
+                                        <li>3xx</li>
+                                        <li>4xx</li>
+                                        <li>5xx</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card__side card__side--back card__side--back-1">
+                                <div class="card-cta">
+                                    <div class="card__price">
+                                        <p class="card__price-only">Only</p>
+                                        <p class="card__price-value">$998</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-1-of-3">
+                        <div class="card">
+                            card 2
+                        </div>
+                    </div>
+                    <div class="col-1-of-3">
+                        <div class="card">
+                            card 3
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </main>
 </body>
 </html>
