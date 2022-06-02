@@ -1,0 +1,420 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  /* 使盒子的大小不受边框和填充的影响 */
+  box-sizing: border-box; }
+
+body {
+  font-family: "微软雅黑";
+  font-weight: 400;
+  font-size: 16px;
+  /* 比预计的行高大1.7倍 */
+  line-height: 1.7;
+  color: #777;
+  padding: 30px; }
+
+.header {
+  position: relative;
+  height: 95vh;
+  /* 颜色线性渐变 从左上角渐变到右下 */
+  background-image: linear-gradient(to right bottom, #7ed56fd1, rgba(39, 180, 133, 0.801)), url(../images/风景.jpg);
+  /* 适应窗口 */
+  background-size: cover;
+  background-position: top;
+  /* 定义多边形的四个角 左上，右上，右下，左下 */
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
+
+.logo-box {
+  position: absolute;
+  top: 40px;
+  left: 40px; }
+
+.logo {
+  height: 35px; }
+
+.text-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  position: relative; }
+
+.heading-peimary {
+  color: #fff;
+  text-transform: uppercase;
+  /* 这行代码是为了 解决动画结束后会稍微向上动 的bug */
+  backface-visibility: visible;
+  margin-bottom: 60px; }
+
+.heading-peimary-main {
+  display: block;
+  font-size: 60px;
+  font-weight: 400;
+  letter-spacing: 35px;
+  /* 动画属性 duration动画时间 delay延迟时间 */
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  /* delay延迟时间 */
+  /* animation-delay:3s; */
+  /* 动画发动次数 */
+  /* animation-iteration-count: 3; */
+  /* 动画效果 ease-out缓出 ease-in缓入 */
+  animation-timing-function: ease-out; }
+
+.heading-peimary-sub {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 17.5px;
+  animation-name: moveInRight;
+  animation-duration: 1s;
+  animation-timing-function: ease-out; }
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px); }
+  80% {
+    transform: translateX(10px); }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px); }
+  80% {
+    transform: translateX(-10px); }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); }
+
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); }
+
+/* 表示链接一直处于已经被访问的状态 */
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 12px 40px;
+  display: inline-block;
+  border-radius: 100px;
+  transition: all .2s;
+  position: relative;
+  animation-name: moveInButtom;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+  animation-delay: 0.5s;
+  /* 动画模式填充 动画开始前样式为0 */
+  animation-fill-mode: backwards; }
+
+.btn-white {
+  background-color: #fff;
+  color: #777; }
+
+.btn::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 100px;
+  transition: all .4s;
+  z-index: -1; }
+
+.btn-white::after {
+  background-color: #fff; }
+
+.btn:hover::after {
+  transform: scaleX(1.5) scaleY(1.6);
+  opacity: 0; }
+
+@keyframes moveInButtom {
+  0% {
+    opacity: 0;
+    transform: translateY(30px); }
+  80% {
+    transform: translateY(-10px); }
+  100% {
+    opacity: 1;
+    transform: translateY(0); } }
+
+.section-about {
+  padding: 250px 0;
+  margin-top: -20vh; }
+
+.heading-secondary {
+  text-align: center;
+  font-size: 35px;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: inline-block;
+  background-image: linear-gradient(to right, #3dd223, #7be06a);
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: .20px;
+  transition: all .2s; }
+  .heading-secondary:hover {
+    transform: skewY(2deg) skewX(15deg) scale(1.1);
+    text-shadow: 0.5px 10px 20px rgba(0, 0, 0, 0.2); }
+
+.u-center-text {
+  text-align: center; }
+
+.row {
+  max-width: 1140px;
+  height: 50vh;
+  margin: 0 auto;
+  margin-top: 100px; }
+  .row:not(:last-child) {
+    margin-bottom: 80px; }
+
+.col-1-of-2 {
+  width: calc((100% - 60px)/2);
+  float: left; }
+  .col-1-of-2:not(:last-child) {
+    margin-right: 60px; }
+
+.composition {
+  position: relative;
+  animation-name: moveInRight;
+  animation-duration: 1s;
+  animation-timing-function: ease-out; }
+  .composition__photo {
+    width: 55%;
+    box-shadow: 0 15px 40px, rgba(0, 0, 0, 0.4);
+    border-radius: 2px;
+    position: absolute;
+    transition: all .2s;
+    outline: 10px solid #3dd223; }
+    .composition__photo--p1 {
+      left: 0;
+      top: -20px; }
+    .composition__photo--p2 {
+      right: 0;
+      top: 20px; }
+    .composition__photo--p3 {
+      left: 20%;
+      top: 100px; }
+    .composition__photo:hover {
+      outline-offset: 15px;
+      transform: scale(1.3) translateY(-5px);
+      box-shadow: 0 25px 40px rgba(0, 0, 0, 0.4);
+      z-index: 20; }
+  .composition:hover .composition__photo:not(:hover) {
+    transform: scale(0.95); }
+
+.section-tours {
+  padding: 250px 0;
+  margin-top: -200px; }
+
+.col-1-of-3 {
+  width: calc((100% - 120px)/3);
+  float: left; }
+  .col-1-of-3:not(:last-child) {
+    margin-right: 60px; }
+
+.card {
+  perspective: 1500px;
+  -moz-perspective: 1500px;
+  position: relative;
+  height: 500px; }
+  .card__side {
+    height: 500px;
+    transition: all .8s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    backface-visibility: hidden;
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25); }
+    .card__side--back {
+      transform: rotateY(180deg); }
+      .card__side--back-1 {
+        background-image: linear-gradient(to right bottom, #ffb900, #ff7730); }
+  .card:hover .card__side--front {
+    transform: rotateY(-180deg); }
+  .card:hover .card__side--back {
+    transform: rotateY(0deg); }
+  .card__picture {
+    background-size: cover;
+    height: 230px;
+    background-blend-mode: screen;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0.5% 100%); }
+    .card__picture-1 {
+      background-image: url(/images/画社1.jpg); }
+  .card__heading {
+    background-image: linear-gradient(to right bottom, #ffb900, #ff7730);
+    font-size: 28px;
+    font-weight: 400;
+    text-align: right;
+    color: #777;
+    position: absolute;
+    top: 120px;
+    right: 20px; }
+  .card__details ul {
+    list-style: none;
+    width: 80%;
+    margin: 0 auto; }
+    .card__details ul li {
+      text-align: center;
+      font-size: 15px;
+      padding: 12px; }
+      .card__details ul li:not(:last-child) {
+        border-bottom: 1px solid #eee; }
+  .card-cta {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    text-align: center; }
+  .card__price {
+    text-align: center;
+    color: #eee;
+    margin-bottom: 80px; }
+  .card__price-only {
+    font-size: 14px; }
+  .card__price-value {
+    font-size: 60px;
+    font-weight: 100; }
+
+.navigation__checkbox {
+  display: none; }
+
+.navigation__button {
+  background-color: #fff;
+  height: 70px;
+  width: 70px;
+  position: fixed;
+  top: 60px;
+  right: 60px;
+  border-radius: 50%;
+  z-index: 2000;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  cursor: pointer; }
+  @media only screen and (max-width: 56.25em) {
+    .navigation__button {
+      top: 40px;
+      right: 40px; } }
+  @media only screen and (max-width: 37.5em) {
+    .navigation__button {
+      top: 30px;
+      right: 30px; } }
+
+.navigation__background {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  position: fixed;
+  top: 65px;
+  right: 65px;
+  background-image: radial-gradient(#3dd223, #7be06a);
+  z-index: 1000;
+  transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1); }
+  @media only screen and (max-width: 56.25em) {
+    .navigation__background {
+      top: 45px;
+      right: 45px; } }
+  @media only screen and (max-width: 37.5em) {
+    .navigation__background {
+      top: 35px;
+      right: 35px; } }
+
+.navigation__nav {
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1500;
+  opacity: 0;
+  width: 0;
+  transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55); }
+
+.navigation__list {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  list-style: none;
+  text-align: center;
+  width: 100%; }
+
+.navigation__item {
+  margin: 10px; }
+
+.navigation__link:link, .navigation__link:visited {
+  display: inline-block;
+  font-size: 30px;
+  font-weight: 300;
+  padding: 10px 20px;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  background-image: linear-gradient(120deg, transparent 0%, transparent 50%, #fff 50%);
+  background-size: 220%;
+  transition: all .4s; }
+  .navigation__link:link span, .navigation__link:visited span {
+    margin-right: 1.50px;
+    display: inline-block; }
+
+.navigation__link:hover, .navigation__link:active {
+  background-position: 100%;
+  color: #55c57a;
+  transform: translateX(10px); }
+
+.navigation__checkbox:checked ~ .navigation__background {
+  transform: scale(80); }
+
+.navigation__checkbox:checked ~ .navigation__nav {
+  opacity: 1;
+  width: 100%; }
+
+.navigation__icon {
+  position: relative;
+  margin-top: 35px; }
+  .navigation__icon, .navigation__icon::before, .navigation__icon::after {
+    width: 30px;
+    height: 2px;
+    background-color: #333;
+    display: inline-block; }
+  .navigation__icon::before, .navigation__icon::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    transition: all .2s; }
+  .navigation__icon::before {
+    top: -.80px; }
+  .navigation__icon::after {
+    top: .80px; }
+
+.navigation__button:hover .navigation__icon::before {
+  top: -10px; }
+
+.navigation__button:hover .navigation__icon::after {
+  top: 10px; }
+
+.navigation__checkbox:checked + .navigation__button .navigation__icon {
+  background-color: transparent; }
+
+.navigation__checkbox:checked + .navigation__button .navigation__icon::before {
+  top: 0;
+  transform: rotate(135deg); }
+
+.navigation__checkbox:checked + .navigation__button .navigation__icon::after {
+  top: 0;
+  transform: rotate(-135deg); }
